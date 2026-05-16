@@ -21,7 +21,7 @@ fi
 
 # ssh-keysign-pwn mitigation
 echo "Applying the ssh-keysign-pwn mitigation..."
-sudo sysctl -w kernel.yama.ptrace_scope=2
+sudo sysctl -w "kernel.yama.ptrace_scope=2" > /dev/null
 echo "kernel.yama.ptrace_scope = 2" | sudo tee /etc/sysctl.d/99-llms-ssh-keysign-pwn-mitigation.conf > /dev/null
 
 echo "All done."
