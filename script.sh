@@ -24,4 +24,13 @@ echo "Applying the ssh-keysign-pwn mitigation..."
 sudo sysctl -w "kernel.yama.ptrace_scope=2" > /dev/null
 echo "kernel.yama.ptrace_scope = 2" | sudo tee /etc/sysctl.d/99-llms-ssh-keysign-pwn-mitigation.conf > /dev/null
 
+# PinTheft mitigation
+echo "Applying the PinTheft mitigation..."
+echo "install rds /bin/false" | sudo tee /etc/modprobe.d/llms-pintheft-mitigation.conf > /dev/null
+echo "install rds_tcp /bin/false" | sudo tee -a /etc/modprobe.d/llms-pintheft-mitigation.conf > /dev/null
+sudo rmmod rds rds_tcp 2> /dev/null
+if grep -qE '^(rds|rds_tcp) ' /proc/modules; then
+    echo "WARNING: Unfortunately, applying the mitigation requires a restart."
+fi
+
 echo "All done."
