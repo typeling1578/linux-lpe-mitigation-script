@@ -8,8 +8,8 @@ if grep -qE '^algif_aead ' /proc/modules; then
     echo "WARNING: Unfortunately, applying the mitigation requires a restart."
 fi
 
-# Dirty Frag / Fragnesia / DirtyCBC mitigation
-echo "Applying the Dirty Frag / Fragnesia / DirtyCBC mitigation..."
+# Dirty Frag / Fragnesia / DirtyCBC / Dirty Decrypt mitigation
+echo "Applying the Dirty Frag / Fragnesia / DirtyCBC / Dirty Decrypt mitigation..."
 echo "install esp4 /bin/false" | sudo tee /etc/modprobe.d/llms-dirty-frag-mitigation.conf > /dev/null
 echo "install esp6 /bin/false" | sudo tee -a /etc/modprobe.d/llms-dirty-frag-mitigation.conf > /dev/null
 echo "install rxrpc /bin/false" | sudo tee -a /etc/modprobe.d/llms-dirty-frag-mitigation.conf > /dev/null

@@ -1,6 +1,6 @@
 # Linux LPE Mitigation Script
 
-This is a script that applies mitigations for the Copy Fail, Dirty Frag / Fragnesia / DirtyCBC, and ssh-keysign-pwn vulnerabilities.
+This is a script that applies mitigations for the Copy Fail, Dirty Frag / Fragnesia / DirtyCBC / Dirty Decrypt, and ssh-keysign-pwn vulnerabilities.
 
 ## Usage
 
